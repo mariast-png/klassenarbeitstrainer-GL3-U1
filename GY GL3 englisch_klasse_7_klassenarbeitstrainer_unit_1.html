@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Englisch Klasse 7 – Klassenarbeitstrainer (Unit 1)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Strikte Verwendung lokaler System-Schriftarten (keine Google Fonts) */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background-color: #f4f7f9;
+            color: #1e293b;
+        }
+
+        /* 3D Flip-Animation für Vokabel-Karteikarten */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        /* Sanfte Übergänge für Tabs & Akkordeons */
+        .fade-in {
+            animation: fadeIn 0.25s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header / Kopfbereich -->
+    <header class="bg-gradient-to-r from-emerald-700 via-teal-700 to-sky-800 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-5 sm:py-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-white/15 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-2">
+                        <span>Englisch Klasse 7</span>
+                        <span>•</span>
+                        <span>Unit 1: The weekend workshop</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Klassenarbeitstrainer &amp; Lern-App</h1>
+                    <p class="text-emerald-100 text-sm sm:text-base mt-1">
+                        Present Perfect vs. Simple Past • Modals &amp; Substitutes • Vokabeln Station 1 &amp; 2
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-white/20 self-start md:self-auto">
+                    <div class="text-right">
+                        <div class="text-xs text-emerald-100">Lernfortschritt</div>
+                        <div id="global-stats" class="font-bold text-sm sm:text-base">0 Aufgaben gelöst</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/30 flex items-center justify-center text-xl">
+                        🎯
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hauptnavigation (4 Tabs) -->
+        <nav class="bg-slate-900/25 border-t border-white/10">
+            <div class="max-w-6xl mx-auto px-2 sm:px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-1.5 py-2" role="tablist">
+                    <button onclick="switchTab('grammar-guide')" id="tab-grammar-guide"
+                        class="nav-btn active-nav flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-teal-900 shadow-sm">
+                        <span>📖</span>
+                        <span>1. Grammatik-Spickzettel</span>
+                    </button>
+                    <button onclick="switchTab('vocab-trainer')" id="tab-vocab-trainer"
+                        class="nav-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-white hover:bg-white/15">
+                        <span>🗂️</span>
+                        <span>2. Vokabeln (St. 1 &amp; 2)</span>
+                    </button>
+                    <button onclick="switchTab('grammar-practice')" id="tab-grammar-practice"
+                        class="nav-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-white hover:bg-white/15">
+                        <span>⚡</span>
+                        <span>3. Grammatik-Training</span>
+                    </button>
+                    <button onclick="switchTab('mock-exam')" id="tab-mock-exam"
+                        class="nav-btn flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-white hover:bg-white/15">
+                        <span>📝</span>
+                        <span>4. Probeklassenarbeit</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6 sm:py-8">
+
+        <!-- ===================================================================== -->
+        <!-- BEREICH 1: GRAMMATIK-SPICKZETTEL & ERKLÄRUNG                          -->
+        <!-- ===================================================================== -->
+        <section id="section-grammar-guide" class="tab-section fade-in space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-7">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4 mb-5">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">Hauptthema G2</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mt-1">Present Perfect vs. Simple Past</h2>
+                    </div>
+                    <span class="text-sm text-slate-500">Buch S. 169 • Wichtigstes Thema der Arbeit</span>
+                </div>
+
+                <!-- Direkter Vergleich in zwei Karten -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
+                    <!-- Simple Past Box -->
+                    <div class="rounded-xl border-2 border-sky-200 bg-sky-50/60 p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-bold text-sky-900">1. Simple Past (Abgeschlossen)</h3>
+                            <span class="text-xs font-bold bg-sky-200 text-sky-900 px-2.5 py-1 rounded-full">VORBEI</span>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed mb-3">
+                            Du benutzt das <strong>Simple Past</strong>, wenn eine Handlung oder ein Ereignis in der Vergangenheit <strong>abgeschlossen</strong> wurde und vorbei ist. Oft wird gesagt, <strong>wann</strong> etwas passiert ist.
+                        </p>
+                        <div class="bg-white rounded-lg p-3 border border-sky-100 text-sm mb-3">
+                            <div class="font-semibold text-sky-800 mb-1">Bildung:</div>
+                            <ul class="list-disc list-inside text-slate-700 space-y-1">
+                                <li>Regelmäßig: Infinitiv + <strong>-ed</strong> (<em>moved, started, presented</em>)</li>
+                                <li>Unregelmäßig: <strong>2. Verbform</strong> (<em>went, took, had, was/were</em>)</li>
+                                <li>Verneinung/Frage: <strong>didn't / Did</strong> + Infinitiv</li>
+                            </ul>
+                        </div>
+                        <div class="bg-sky-100/80 rounded-lg p-3 text-xs sm:text-sm text-sky-950">
+                            <strong>Signalwörter:</strong><br>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-sky-800">yesterday</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-sky-800">a month ago</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-sky-800">last week / year</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-sky-800">in December / in 2022</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 font-mono text-sky-800">when ... (Nebensatz)</span>
+                        </div>
+                        <div class="mt-3 text-sm space-y-1 text-slate-700">
+                            <p>• I <strong>presented</strong> my project idea <u>yesterday</u>.</p>
+                            <p>• Her mums <strong>moved</strong> to London <u>when she was a baby</u>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Present Perfect Box -->
+                    <div class="rounded-xl border-2 border-emerald-200 bg-emerald-50/60 p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-bold text-emerald-900">2. Present Perfect (Bezug zu JETZT)</h3>
+                            <span class="text-xs font-bold bg-emerald-200 text-emerald-900 px-2.5 py-1 rounded-full">NOCH SPÜRBAR</span>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed mb-3">
+                            Du benutzt das <strong>Present Perfect</strong>, wenn etwas in der Vergangenheit begonnen hat oder passiert ist, aber <strong>jetzt in der Gegenwart noch spürbar</strong> oder wichtig ist (Ergebnis!). Wann genau es war, ist unwichtig.
+                        </p>
+                        <div class="bg-white rounded-lg p-3 border border-emerald-100 text-sm mb-3">
+                            <div class="font-semibold text-emerald-800 mb-1">Bildung:</div>
+                            <ul class="list-disc list-inside text-slate-700 space-y-1">
+                                <li><strong>have / has</strong> + <strong>Past Participle (3. Verbform / -ed)</strong></li>
+                                <li>Kurzformen: <em>I've, she's, they've, haven't, hasn't</em></li>
+                                <li>Beispiele: <em>have had, has called, have never been</em></li>
+                            </ul>
+                        </div>
+                        <div class="bg-emerald-100/80 rounded-lg p-3 text-xs sm:text-sm text-emerald-950">
+                            <strong>Signalwörter:</strong><br>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-emerald-800">already</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-emerald-800">never / ever</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-emerald-800">just</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-emerald-800">(not) yet</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 mr-1 font-mono text-emerald-800">recently</span>
+                            <span class="inline-block bg-white px-2 py-0.5 rounded mt-1 font-mono text-emerald-800">since + Zeitpunkt</span>
+                        </div>
+                        <div class="mt-3 text-sm space-y-1 text-slate-700">
+                            <p>• Beca <strong>has just called</strong> her mum. <em>(→ Sie spricht jetzt mit ihr.)</em></p>
+                            <p>• They<strong>'ve never been</strong> to a workshop. <em>(→ Bis heute nicht.)</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interaktiver Zeitstrahl (wie im Buch S. 169) -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-6">
+                    <h4 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <span>⏳</span>
+                        <span>Zeitstrahl-Visualisierung (Klicke auf die Beispiele!)</span>
+                    </h4>
+                    <div class="grid grid-cols-3 gap-1 text-center text-xs sm:text-sm font-bold mb-3">
+                        <div class="bg-sky-200 text-sky-900 py-2 rounded-l-lg">PAST (Vergangenheit)</div>
+                        <div class="bg-emerald-200 text-emerald-900 py-2">PRESENT (Gegenwart)</div>
+                        <div class="bg-slate-200 text-slate-700 py-2 rounded-r-lg">FUTURE (Zukunft) ➔</div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <button onclick="showTimelineTip('past')" class="text-left p-3.5 rounded-xl bg-white border-2 border-sky-300 hover:bg-sky-50 transition">
+                            <div class="text-xs font-bold text-sky-700 uppercase">Punkt in der Vergangenheit (Simple Past)</div>
+                            <div class="font-medium text-slate-800 mt-1">"Her mums <span class="underline decoration-sky-500 font-bold">moved</span> to North Kensington when she was a baby."</div>
+                        </button>
+                        <button onclick="showTimelineTip('perfect')" class="text-left p-3.5 rounded-xl bg-white border-2 border-emerald-300 hover:bg-emerald-50 transition">
+                            <div class="text-xs font-bold text-emerald-700 uppercase">Brücke von Past bis Present (Present Perfect)</div>
+                            <div class="font-medium text-slate-800 mt-1">"Lauren <span class="underline decoration-emerald-500 font-bold">has never lived</span> in a big house."</div>
+                        </button>
+                    </div>
+                    <div id="timeline-explanation" class="mt-3 text-sm text-slate-700 bg-white p-3 rounded-lg border border-slate-200 hidden"></div>
+                </div>
+
+                <!-- Achtung Typischer Fehler (Ausrufezeichen-Box aus dem Buch) -->
+                <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-4 sm:p-5">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">⚠️</span>
+                        <div>
+                            <h4 class="font-bold text-amber-900 text-base">Achtung: Typische Deutsch-Englisch-Falle!</h4>
+                            <p class="text-sm text-amber-950 mt-1 leading-relaxed">
+                                Im Deutschen benutzen wir oft das Perfekt (<em>"Ich <u>habe</u> letztes Wochenende an einem Workshop <u>teilgenommen</u>"</em>), auch wenn etwas komplett vorbei ist. Im Englischen darfst du hier <strong>NICHT</strong> das Present Perfect nehmen!
+                            </p>
+                            <div class="mt-2.5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                                <div class="bg-rose-100/80 text-rose-900 px-3 py-2 rounded-lg font-medium">
+                                    ❌ Falsch: I <del>have taken</del> part last weekend.
+                                </div>
+                                <div class="bg-emerald-100 text-emerald-900 px-3 py-2 rounded-lg font-medium">
+                                    ✅ Richtig: I <strong>took</strong> part in a workshop last weekend.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nebenthema G1: Modals and their substitute forms -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-7">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4 mb-5">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md">Grammatik G1</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mt-1">Modals and their substitute forms (Ersatzformen)</h2>
+                    </div>
+                    <span class="text-sm text-slate-500">Buch S. 168</span>
+                </div>
+
+                <p class="text-sm sm:text-base text-slate-700 mb-5 leading-relaxed">
+                    Die Modalverben <strong>can, can't, may, must, mustn't</strong> und <strong>needn't</strong> kannst du <strong>nur im Simple Present</strong> benutzen. Für alle anderen Zeitformen (z. B. im <strong>Simple Past</strong> oder nach <em>why / doesn't understand</em>) brauchst du ihre <strong>Ersatzformen (substitute forms)</strong>:
+                </p>
+
+                <!-- Übersichtstabelle wie im Buch -->
+                <div class="overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-teal-700 text-white">
+                                <th class="p-3.5 font-semibold">Bedeutung</th>
+                                <th class="p-3.5 font-semibold">Modalverb (Simple Present)</th>
+                                <th class="p-3.5 font-semibold">Ersatzform Simple Present</th>
+                                <th class="p-3.5 font-semibold">Ersatzform Simple Past</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 bg-white">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-semibold text-slate-800">1. Erlaubnis / Verbot<br><span class="text-xs font-normal text-teal-700">be allowed to</span></td>
+                                <td class="p-3.5"><strong>can / may</strong> (dürfen)<br><strong>can't / mustn't</strong> (nicht dürfen)</td>
+                                <td class="p-3.5">am / is / are <strong>allowed to</strong><br>am not / isn't / aren't <strong>allowed to</strong></td>
+                                <td class="p-3.5">was / were <strong>allowed to</strong><br>wasn't / weren't <strong>allowed to</strong></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-semibold text-slate-800">2. (Un-)Fähigkeit<br><span class="text-xs font-normal text-teal-700">be able to</span></td>
+                                <td class="p-3.5"><strong>can</strong> (können)<br><strong>can't</strong> (nicht können)</td>
+                                <td class="p-3.5">am / is / are <strong>able to</strong><br>am not / isn't / aren't <strong>able to</strong></td>
+                                <td class="p-3.5">was / were <strong>able to</strong><br>wasn't / weren't <strong>able to</strong></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-semibold text-slate-800">3. Notwendigkeit<br><span class="text-xs font-normal text-teal-700">have to</span></td>
+                                <td class="p-3.5"><strong>must</strong> (müssen)</td>
+                                <td class="p-3.5"><strong>have to / has to</strong></td>
+                                <td class="p-3.5"><strong>had to</strong></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-semibold text-slate-800">4. Keine Notwendigkeit<br><span class="text-xs font-normal text-teal-700">not have to</span></td>
+                                <td class="p-3.5"><strong>needn't</strong> (nicht brauchen / nicht müssen)</td>
+                                <td class="p-3.5"><strong>don't have to / doesn't have to</strong></td>
+                                <td class="p-3.5"><strong>didn't have to</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Aufklappbare Beispielsätze aus dem Buch -->
+                <div class="space-y-2.5">
+                    <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wider">Beispiele aus dem Buch (zum Aufklappen):</h4>
+                    
+                    <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 cursor-pointer">
+                        <summary class="font-semibold text-slate-800 flex items-center justify-between">
+                            <span>📌 Beispiele zu: be allowed to (Erlaubnis / Verbot)</span>
+                            <span class="text-teal-700 text-xs group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <div class="mt-3 pt-3 border-t border-slate-200 text-sm text-slate-700 space-y-1.5">
+                            <p>• <em>Present:</em> Everyone <strong>is allowed to</strong> choose their own project.</p>
+                            <p>• <em>Present (verneint):</em> I don't understand why we <strong>aren't allowed to</strong> choose groups.</p>
+                            <p>• <em>Past:</em> At the workshop, we <strong>weren't allowed to</strong> go out at night.</p>
+                            <p>• <em>Past (Frage):</em> <strong>Were</strong> you <strong>allowed to</strong> work with other groups?</p>
+                        </div>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 cursor-pointer">
+                        <summary class="font-semibold text-slate-800 flex items-center justify-between">
+                            <span>📌 Beispiele zu: be able to (Fähigkeit / Unfähigkeit)</span>
+                            <span class="text-teal-700 text-xs group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <div class="mt-3 pt-3 border-t border-slate-200 text-sm text-slate-700 space-y-1.5">
+                            <p>• <em>Present:</em> Rishi and Lauren <strong>are able to</strong> go home at night, but they want to stay.</p>
+                            <p>• <em>Present (verneint):</em> One group <strong>isn't able to</strong> stay polite; they argue all the time.</p>
+                            <p>• <em>Past:</em> Ollie's group <strong>wasn't able to</strong> choose a group leader.</p>
+                        </div>
+                    </details>
+
+                    <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 cursor-pointer">
+                        <summary class="font-semibold text-slate-800 flex items-center justify-between">
+                            <span>📌 Beispiele zu: have to / didn't have to (Notwendigkeit)</span>
+                            <span class="text-teal-700 text-xs group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <div class="mt-3 pt-3 border-t border-slate-200 text-sm text-slate-700 space-y-1.5">
+                            <p>• <em>Present:</em> The groups <strong>have to</strong> present their projects. / Rishi <strong>has to</strong> be at the workshop.</p>
+                            <p>• <em>Past:</em> At last year's workshop, Jess <strong>had to</strong> stop a group from arguing.</p>
+                            <p>• <em>Keine Notwendigkeit (Present):</em> Jess <strong>doesn't have to</strong> help the groups.</p>
+                            <p>• <em>Keine Notwendigkeit (Past):</em> We <strong>didn't have to</strong> be in bed before 9:30 p.m.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Sofort-Check im Spickzettel -->
+            <div class="bg-gradient-to-br from-teal-50 to-sky-50 border border-teal-200 rounded-2xl p-5 sm:p-6">
+                <h3 class="text-lg font-bold text-slate-800 mb-1">⚡ Mini-Verständnis-Check</h3>
+                <p class="text-sm text-slate-600 mb-4">Teste kurz, ob du die Regeln verstanden hast:</p>
+                <div id="quick-check-container" class="space-y-4"></div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- BEREICH 2: VOKABELTRAINER (STATION 1 & 2)                             -->
+        <!-- ===================================================================== -->
+        <section id="section-vocab-trainer" class="tab-section hidden fade-in space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-100 pb-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-800">Vokabeltrainer: Station 1 &amp; Station 2</h2>
+                        <p class="text-sm text-slate-600">Alle 53 Vokabeln aus deinem Englischbuch (S. 186–189)</p>
+                    </div>
+
+                    <!-- Modus-Umschalter: Karteikarten vs. Vokabel-Test -->
+                    <div class="inline-flex rounded-xl bg-slate-100 p-1 self-start">
+                        <button onclick="setVocabMode('flashcards')" id="btn-vocab-flashcards"
+                            class="px-4 py-2 rounded-lg text-sm font-semibold bg-white text-teal-800 shadow-sm transition">
+                            🗂️ Karteikarten
+                        </button>
+                        <button onclick="setVocabMode('quiz')" id="btn-vocab-quiz"
+                            class="px-4 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
+                            ✍️ Vokabel-Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Station-Filter -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-4">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="text-xs font-bold uppercase text-slate-500 mr-1">Filter:</span>
+                        <button onclick="setVocabFilter('all')" id="filter-all"
+                            class="vocab-filter-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-teal-700 text-white">
+                            Alle (53)
+                        </button>
+                        <button onclick="setVocabFilter('1')" id="filter-1"
+                            class="vocab-filter-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200">
+                            Station 1 (18)
+                        </button>
+                        <button onclick="setVocabFilter('2')" id="filter-2"
+                            class="vocab-filter-btn px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200">
+                            Station 2 (35)
+                        </button>
+                    </div>
+
+                    <div id="flashcard-direction-wrap" class="flex items-center gap-2">
+                        <label for="card-direction" class="text-xs font-semibold text-slate-600">Vorderseite:</label>
+                        <select id="card-direction" onchange="renderFlashcard()" class="text-xs sm:text-sm border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white">
+                            <option value="en-de">Englisch ➔ Deutsch</option>
+                            <option value="de-en">Deutsch ➔ Englisch</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUS A: KARTEIKARTEN -->
+            <div id="vocab-flashcards-view" class="space-y-4">
+                <div class="max-w-xl mx-auto">
+                    <div class="flex items-center justify-between text-xs sm:text-sm text-slate-500 mb-2 px-1">
+                        <span id="card-counter" class="font-semibold">Karte 1 von 53</span>
+                        <span id="card-station-badge" class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">Station 1</span>
+                    </div>
+
+                    <!-- Flip Card -->
+                    <div onclick="flipCard()" class="perspective-1000 cursor-pointer select-none h-72 sm:h-80 w-full">
+                        <div id="flashcard-inner" class="relative w-full h-full transform-style-3d">
+                            <!-- Vorderseite -->
+                            <div class="absolute inset-0 backface-hidden bg-white border-2 border-slate-200 rounded-2xl shadow-md p-6 flex flex-col items-center justify-center text-center">
+                                <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-3">Klicken zum Umdrehen</span>
+                                <div id="card-front-text" class="text-2xl sm:text-3xl font-bold text-slate-800 px-2">comfort zone</div>
+                                <div id="card-front-hint" class="text-xs text-slate-500 mt-3 italic"></div>
+                            </div>
+
+                            <!-- Rückseite -->
+                            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-teal-700 to-sky-800 text-white rounded-2xl shadow-md p-6 flex flex-col items-center justify-center text-center">
+                                <span class="text-xs uppercase tracking-wider text-teal-200 font-semibold mb-2">Bedeutung &amp; Beispiel</span>
+                                <div id="card-back-text" class="text-xl sm:text-2xl font-bold mb-3">Komfortzone</div>
+                                <div id="card-example-box" class="bg-white/15 rounded-xl p-3 text-xs sm:text-sm text-teal-50 max-w-md">
+                                    "Why is it so hard to leave my comfort zone?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Steuerung unter der Karte -->
+                    <div class="flex items-center justify-between gap-2 mt-4">
+                        <button onclick="prevCard()" class="flex-1 py-3 px-4 rounded-xl bg-white border border-slate-300 font-semibold text-slate-700 hover:bg-slate-50 active:scale-95 transition">
+                            ← Zurück
+                        </button>
+                        <button onclick="shuffleCards()" class="py-3 px-4 rounded-xl bg-amber-100 text-amber-900 font-semibold hover:bg-amber-200 active:scale-95 transition" title="Karten mischen">
+                            🔀 Mischen
+                        </button>
+                        <button onclick="nextCard()" class="flex-1 py-3 px-4 rounded-xl bg-teal-700 text-white font-semibold hover:bg-teal-800 active:scale-95 transition">
+                            Weiter →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODUS B: INTERAKTIVER VOKABEL-TEST -->
+            <div id="vocab-quiz-view" class="hidden space-y-5">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800">Interaktiver Vokabel-Test (10 Aufgaben)</h3>
+                            <p class="text-xs sm:text-sm text-slate-500">Mischung aus Übersetzungen und Lückensätzen aus dem Buch</p>
+                        </div>
+                        <button onclick="generateVocabQuiz()" class="px-4 py-2 rounded-xl bg-teal-700 text-white text-sm font-semibold hover:bg-teal-800 transition">
+                            🔄 Neue 10 Fragen generieren
+                        </button>
+                    </div>
+
+                    <div id="vocab-quiz-list" class="space-y-4"></div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                        <button onclick="checkVocabQuiz()" class="px-6 py-3 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 shadow-sm transition">
+                            ✅ Vokabel-Test auswerten
+                        </button>
+                        <div id="vocab-quiz-score" class="font-bold text-base text-slate-800"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- BEREICH 3: GRAMMATIK-TRAINING (3 SCHWIERIGKEITSSTUFEN)                -->
+        <!-- ===================================================================== -->
+        <section id="section-grammar-practice" class="tab-section hidden fade-in space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-800">Grammatik-Training</h2>
+                        <p class="text-sm text-slate-600">Schwerpunkt: Present Perfect vs. Simple Past (75%) + Modals &amp; Substitutes (25%)</p>
+                    </div>
+
+                    <!-- Schwierigkeitsstufen-Auswahl -->
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="setGrammarLevel(1)" id="lvl-btn-1"
+                            class="lvl-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-sm transition">
+                            ⭐ Stufe 1: Basis
+                        </button>
+                        <button onclick="setGrammarLevel(2)" id="lvl-btn-2"
+                            class="lvl-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                            ⭐⭐ Stufe 2: Mittel
+                        </button>
+                        <button onclick="setGrammarLevel(3)" id="lvl-btn-3"
+                            class="lvl-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                            ⭐⭐⭐ Stufe 3: Profi
+                        </button>
+                    </div>
+                </div>
+
+                <div id="level-description" class="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-sm text-slate-700">
+                    <strong>Stufe 1 (Basis):</strong> Erkenne Signalwörter und entscheide dich sicher zwischen Simple Past und Present Perfect.
+                </div>
+            </div>
+
+            <!-- Aufgaben-Container -->
+            <div id="grammar-tasks-container" class="space-y-4"></div>
+
+            <!-- Gesamtauswertung für die aktuelle Stufe -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex gap-3">
+                    <button onclick="checkAllGrammarTasks()" class="px-5 py-2.5 rounded-xl bg-teal-700 text-white font-bold text-sm hover:bg-teal-800 transition">
+                        Alle Aufgaben dieser Stufe prüfen
+                    </button>
+                    <button onclick="resetGrammarLevel()" class="px-4 py-2.5 rounded-xl bg-slate-100 text-slate-700 font-semibold text-sm hover:bg-slate-200 transition">
+                        Zurücksetzen
+                    </button>
+                </div>
+                <div id="grammar-level-summary" class="font-bold text-sm sm:text-base text-slate-800"></div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- BEREICH 4: PROBEKLASSENARBEIT MIT NOTE                                -->
+        <!-- ===================================================================== -->
+        <section id="section-mock-exam" class="tab-section hidden fade-in space-y-6">
+            <!-- Klassenarbeits-Kopf -->
+            <div class="bg-white rounded-2xl shadow-sm border-2 border-teal-600/30 p-5 sm:p-7">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 pb-4">
+                    <div>
+                        <span class="inline-block bg-teal-100 text-teal-900 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wide mb-1">
+                            Simulierte Klassenarbeit • Klasse 7
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Class Test: Unit 1 – The weekend workshop</h2>
+                        <p class="text-sm text-slate-600 mt-1">Bearbeite alle 4 Teile (A bis D) und klicke unten auf „Klassenarbeit abgeben &amp; Note berechnen“.</p>
+                    </div>
+                    <div class="bg-slate-100 px-4 py-3 rounded-xl text-center shrink-0">
+                        <div class="text-xs font-semibold text-slate-500 uppercase">Gesamtpunktzahl</div>
+                        <div class="text-2xl font-extrabold text-teal-800">40 Punkte</div>
+                    </div>
+                </div>
+
+                <!-- Notenschlüssel Vorschau -->
+                <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-600">
+                    <span class="font-bold text-slate-700">Notenschlüssel:</span>
+                    <span class="bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">Note 1: ≥ 92% (37–40 P.)</span>
+                    <span class="bg-teal-50 border border-teal-200 px-2 py-0.5 rounded">Note 2: ≥ 81% (32.5–36.5 P.)</span>
+                    <span class="bg-sky-50 border border-sky-200 px-2 py-0.5 rounded">Note 3: ≥ 67% (27–32 P.)</span>
+                    <span class="bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">Note 4: ≥ 50% (20–26.5 P.)</span>
+                    <span class="bg-orange-50 border border-orange-200 px-2 py-0.5 rounded">Note 5: ≥ 30% (12–19.5 P.)</span>
+                    <span class="bg-rose-50 border border-rose-200 px-2 py-0.5 rounded">Note 6: &lt; 30%</span>
+                </div>
+            </div>
+
+            <!-- Ergebnis-Banner (wird nach Abgabe eingeblendet) -->
+            <div id="exam-result-banner" class="hidden bg-white rounded-2xl shadow-lg border-2 border-emerald-500 p-6 sm:p-8 fade-in">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-2 text-center md:text-left">
+                        <div class="text-xs font-bold uppercase tracking-wider text-emerald-700">Auswertung deiner Probeklassenarbeit</div>
+                        <h3 id="exam-feedback-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900">Super Leistung!</h3>
+                        <p id="exam-feedback-text" class="text-sm sm:text-base text-slate-700 max-w-xl"></p>
+                        <div class="pt-2">
+                            <button onclick="resetMockExam()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white text-sm font-semibold hover:bg-slate-900 transition">
+                                🔄 Klassenarbeit komplett neu starten
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Noten-Kachel -->
+                    <div class="flex items-center gap-4 bg-slate-50 border border-slate-200 p-5 rounded-2xl shrink-0">
+                        <div class="text-center pr-4 border-r border-slate-200">
+                            <div class="text-xs font-bold text-slate-500 uppercase">Punkte</div>
+                            <div id="exam-points-display" class="text-2xl font-extrabold text-slate-800 mt-1">0 / 40</div>
+                            <div id="exam-percent-display" class="text-sm font-semibold text-teal-700">0%</div>
+                        </div>
+                        <div class="text-center pl-2">
+                            <div class="text-xs font-bold text-slate-500 uppercase">Schulnote</div>
+                            <div id="exam-grade-display" class="text-5xl font-black text-emerald-600 mt-0.5">1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aufgaben der Probeklassenarbeit (Teil A bis D) -->
+            <div id="mock-exam-container" class="space-y-6"></div>
+
+            <!-- Abgabe-Button -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-center">
+                <button onclick="gradeMockExam()" id="btn-submit-exam"
+                    class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-extrabold text-base sm:text-lg shadow-md hover:from-emerald-700 hover:to-teal-800 active:scale-98 transition">
+                    🎓 Klassenarbeit abgeben &amp; Note berechnen
+                </button>
+                <p class="text-xs text-slate-500 mt-2">Tipp: Achte auf Groß-/Kleinschreibung am Satzanfang und korrekte Kurzformen (z. B. didn't, haven't).</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+        Englisch Klasse 7 • Interaktive Prüfungsvorbereitung zu Unit 1 (The weekend workshop)
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT LOGIK & DATEN                                              -->
+    <!-- ===================================================================== -->
+    <script>
+        // =========================================================================
+        // 1. DATENBANK: VOKABELN STATION 1 & STATION 2 (Exakt aus Buch S. 186-189)
+        // =========================================================================
+        const VOCAB_DATA = [
+            // --- STATION 1 (18 Vokabeln) ---
+            { station: "1", en: "comfort zone", de: "Komfortzone", example: "Why is it so hard to leave my comfort zone? – Maybe because it's so comfortable?" },
+            { station: "1", en: "to be able to (do sth)", de: "fähig sein zu; können; dürfen", example: "If you're able to finally leave your comfort zone, you might find that you like the new experience a lot." },
+            { station: "1", en: "to be allowed to (do sth)", de: "dürfen", example: "Students aren't allowed to use their phones at some schools." },
+            { station: "1", en: "I can't help the fact that ...", de: "Ich kann nichts dafür, dass ...", example: "I can't help the fact that I'm good at maths." },
+            { station: "1", en: "rural", de: "ländlich", example: "What is it like outside the big cities in England, in the rural areas?" },
+            { station: "1", en: "Catholic", de: "Katholik/-in; katholisch", example: "Rome is the centre of the Catholic Church." },
+            { station: "1", en: "peace", de: "Frieden", example: "Rishi, Lauren – can we have a few minutes peace, please? Stop arguing!" },
+            { station: "1", en: "to separate", de: "(sich) trennen", example: "In the attic, we need to separate the things we want to keep from the things we don't want to keep." },
+            { station: "1", en: "Protestant", de: "Protestant/-in; protestantisch", example: "In Germany, the number of Protestants and Catholics is about the same." },
+            { station: "1", en: "mostly", de: "überwiegend", example: "I mostly chat with my friends, but sometimes I call them." },
+            { station: "1", en: "boundary", de: "Grenze; Abgrenzung", example: "Good friends respect each other's boundaries." },
+            { station: "1", en: "shall", de: "sollen", example: "Shall we take a break now?" },
+            { station: "1", en: "mind", de: "Geist; Verstand; Kopf", example: "I don't know what he's thinking. I don't know what's going on in his mind." },
+            { station: "1", en: "needn't", de: "nicht brauchen; nicht müssen", example: "It's OK, you needn't go to the supermarket. We have enough food in the fridge." },
+            { station: "1", en: "session", de: "Sitzung; Stunde", example: "At the workshop we have three sessions on Saturday, but how many are there on Sunday?" },
+            { station: "1", en: "mustn't", de: "nicht dürfen", example: "You mustn't use your phone in a museum." },
+            { station: "1", en: "to switch off", de: "ausschalten", example: "OK everybody, switch off your phones now! It's time to start our workshop." },
+            { station: "1", en: "eco-friendly", de: "umweltfreundlich", example: "Using a bike instead of a car is very eco-friendly." },
+
+            // --- STATION 2 (35 Vokabeln) ---
+            { station: "2", en: "hope", de: "Hoffnung", example: "What hopes do you have for the workshop, Lauren? – I hope Rishi and I don't argue all the time!" },
+            { station: "2", en: "autism", de: "Autismus", example: "Is it true that people with autism are often very good at focusing on one topic? – Yes, that's true." },
+            { station: "2", en: "to hang out (with) / hung out", de: "sich herumtreiben (mit); rumhängen (mit); sich treffen (mit)", example: "When you hang out with friends, you meet them and spend time with them." },
+            { station: "2", en: "lonely", de: "einsam", example: "I'm often alone, but I don't always feel lonely." },
+            { station: "2", en: "carer", de: "Betreuer/-in", example: "Carers often help the same people each day or week, for example in the people's homes." },
+            { station: "2", en: "to meet up", de: "sich treffen", example: "Ollie likes to meet up with other young carers like himself." },
+            { station: "2", en: "with special needs", de: "mit Behinderung; mit besonderen Bedürfnissen", example: "In English-speaking countries, one often speaks about people with disabilities as people with special needs." },
+            { station: "2", en: "recently", de: "kürzlich; neulich", example: "I was in Wales recently. – Oh, when was that? – About two months ago." },
+            { station: "2", en: "bright", de: "hell; leuchtend; strahlend", example: "It was too bright for my eyes when we left the cinema." },
+            { station: "2", en: "darkness", de: "Dunkelheit", example: "Darkness can be scary; you can't see anything." },
+            { station: "2", en: "autistic", de: "autistisch", example: "Ollie told the people at the workshop that some autistic children don't like darkness." },
+            { station: "2", en: "to shuffle", de: "(Karten) mischen", example: "Please shuffle the cards before we start the game." },
+            { station: "2", en: "national", de: "national; landesweit", example: "The national football team plays tomorrow." },
+            { station: "2", en: "since", de: "seit; seitdem", example: "I got a lot of bad comments on my last post. Since then, I don't post anything." },
+            { station: "2", en: "whose", de: "wessen", example: "Whose dirty socks are these? Yuk!" },
+            { station: "2", en: "active", de: "aktiv", example: "People with an active lifestyle like to go to lots of places and usually like sports too." },
+            { station: "2", en: "council flat", de: "Sozialwohnung", example: "When he lost his job, he had to move into a council flat." },
+            { station: "2", en: "tower block", de: "Hochhaus", example: "A tower block is a tall building which is divided into flats or offices." },
+            { station: "2", en: "quite", de: "ziemlich; ganz; völlig", example: "How was your trip to London? – It was quite nice, thanks." },
+            { station: "2", en: "successful", de: "erfolgreich", example: "Rishi's parents make a lot of money so they're successful." },
+            { station: "2", en: "to experience", de: "erfahren; erleben", example: "Has Rishi ever experienced what it's like in a council estate? – I don't think so." },
+            { station: "2", en: "a bit", de: "ein bisschen; ein wenig", example: "Before a test she's always a bit nervous." },
+            { station: "2", en: "urban", de: "städtisch; Stadt-", example: "London is the biggest urban area in the UK, and Manchester is the second biggest." },
+            { station: "2", en: "gardening", de: "Gärtnern; Gartenarbeit", example: "In cities, you can find more and more urban gardening projects on top of buildings." },
+            { station: "2", en: "change", de: "Änderung; Veränderung; Wechsel", example: "There have been a lot of really good changes in our town." },
+            { station: "2", en: "improvement", de: "Verbesserung", example: "Not every change is an improvement." },
+            { station: "2", en: "unpopular", de: "unpopulär; unbeliebt", example: "She's unpopular because she writes such negative posts." },
+            { station: "2", en: "to contrast", de: "kontrastieren; gegenüberstellen", example: "When you contrast the UK and Germany, what is the same, what is different?" },
+            { station: "2", en: "to afford", de: "sich leisten", example: "My grandparents didn't have much money so they could never afford to go on holiday." },
+            { station: "2", en: "to achieve", de: "erreichen; erlangen", example: "Sometimes it's hard to achieve your goals." },
+            { station: "2", en: "to be prejudiced against sb/sth", de: "voreingenommen sein gegenüber jmdm./etw.", example: "Just because you don't like one person from another country doesn't mean you should be prejudiced against that country." },
+            { station: "2", en: "upper class", de: "Oberschicht", example: "People in the upper class only think of money. – Don't be so prejudiced!" },
+            { station: "2", en: "working class", de: "Arbeiterklasse", example: "Many families in this neighbourhood belong to the working class." },
+            { station: "2", en: "saying", de: "Redensart; Sprichwort", example: "'When the cat's away, the mice will play' is an English saying." },
+            { station: "2", en: "society", de: "Gesellschaft", example: "When you get to know how society works in other countries, you contrast what you see with your own society." }
+        ];
+
+        // =========================================================================
+        // 2. GRAMMATIK-TRAINING AUFGABEN (3 STUFEN: 75% PP vs SP, 25% Modals)
+        // =========================================================================
+        const GRAMMAR_LEVELS = {
+            1: {
+                description: "<strong>Stufe 1 (Basis):</strong> Erkenne Signalwörter und wähle die richtige Zeitform (Simple Past oder Present Perfect) sowie einfache Ersatzformen.",
+                tasks: [
+                    {
+                        id: "g1_1", type: "mc", topic: "Present Perfect vs. Simple Past",
+                        prompt: "I _______ my project idea to the group yesterday.",
+                        options: ["presented", "have presented", "present"],
+                        answer: "presented",
+                        explanation: "Das Signalwort 'yesterday' zeigt einen abgeschlossenen Zeitpunkt in der Vergangenheit an ➔ Simple Past (presented)."
+                    },
+                    {
+                        id: "g1_2", type: "mc", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Beca _______ her mum. She's talking to her right now.",
+                        options: ["just called", "has just called", "was calling"],
+                        answer: "has just called",
+                        explanation: "'just' ist ein Signalwort für das Present Perfect, und das Ergebnis ist jetzt spürbar ('She's talking to her right now')."
+                    },
+                    {
+                        id: "g1_3", type: "mc", topic: "Present Perfect vs. Simple Past",
+                        prompt: "They _______ to a weekend workshop before.",
+                        options: ["were never", "have never been", "never went"],
+                        answer: "have never been",
+                        explanation: "'never' (bis heute noch nie) verlangt das Present Perfect: have never been."
+                    },
+                    {
+                        id: "g1_4", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Ollie ____________ (start) his film club in December.",
+                        answers: ["started"],
+                        explanation: "'in December' ist ein fester Zeitpunkt in der Vergangenheit ➔ Simple Past (started)."
+                    },
+                    {
+                        id: "g1_5", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "We ____________ (move) to a new neighbourhood last year.",
+                        answers: ["moved"],
+                        explanation: "'last year' ist ein klassisches Signalwort für das Simple Past ➔ moved."
+                    },
+                    {
+                        id: "g1_6", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Look! I ____________ (already / finish) my poster for the session!",
+                        answers: ["have already finished", "'ve already finished"],
+                        explanation: "'already' + das sichtbare Ergebnis jetzt ('Look!') ➔ Present Perfect: have already finished."
+                    },
+                    {
+                        id: "g1_7", type: "mc", topic: "Modals & Substitutes",
+                        prompt: "Ersetze 'must' im Simple Past: Yesterday, Jess _______ stop a group from arguing.",
+                        options: ["musted", "had to", "was allowed to"],
+                        answer: "had to",
+                        explanation: "'must' hat keine eigene Vergangenheitsform. Die Ersatzform im Simple Past lautet 'had to'."
+                    },
+                    {
+                        id: "g1_8", type: "mc", topic: "Modals & Substitutes",
+                        prompt: "Ersetze 'mustn't' im Simple Past: At the workshop, we _______ go out at night.",
+                        options: ["weren't allowed to", "didn't have to", "wasn't able to"],
+                        answer: "weren't allowed to",
+                        explanation: "Verbot ('nicht dürfen') im Simple Past mit 'we' ➔ weren't allowed to."
+                    }
+                ]
+            },
+            2: {
+                description: "<strong>Stufe 2 (Mittel – Klassenarbeits-Niveau):</strong> Hier fehlen manchmal Signalwörter – achte auf den Zusammenhang (abgeschlossen vs. Auswirkung auf heute)!",
+                tasks: [
+                    {
+                        id: "g2_1", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Her mums ____________ (move) to North Kensington when she was a baby.",
+                        answers: ["moved"],
+                        explanation: "Im Nebensatz mit 'when' ('when she was a baby') steht das Simple Past (moved)."
+                    },
+                    {
+                        id: "g2_2", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Rishi ____________ (not / switch off) his phone yet – look, it's still ringing!",
+                        answers: ["hasn't switched off", "has not switched off"],
+                        explanation: "Signalwort '(not) yet' + Auswirkung in der Gegenwart ('it's still ringing') ➔ Present Perfect: hasn't switched off."
+                    },
+                    {
+                        id: "g2_3", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "I ____________ (take part) in a great workshop last weekend.",
+                        answers: ["took part"],
+                        explanation: "Achtung Deutsch-Falle! 'last weekend' ist vorbei ➔ Simple Past (took part), nicht 'have taken part'."
+                    },
+                    {
+                        id: "g2_4", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Lauren ____________ (never / live) in a big house, so she loves her flat.",
+                        answers: ["has never lived", "'s never lived"],
+                        explanation: "Zustand, der bis heute anhält ('never') ➔ Present Perfect: has never lived."
+                    },
+                    {
+                        id: "g2_5", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "____________ you ____________ (ever / experience) what it's like in a council estate?",
+                        answers: ["Have / experienced", "Have you experienced"],
+                        hint: "Schreibe die beiden Teile mit Schrägstrich, z.B.: Have / seen",
+                        explanation: "Frage nach Lebenserfahrung bis heute ('ever') ➔ Present Perfect: Have you ever experienced..."
+                    },
+                    {
+                        id: "g2_6", type: "mc", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Rishi's family got a lot of bad comments two weeks ago. Since then, he _______ anything.",
+                        options: ["didn't post", "hasn't posted", "doesn't post"],
+                        answer: "hasn't posted",
+                        explanation: "'Since then' (seitdem bis heute) verlangt das Present Perfect: hasn't posted."
+                    },
+                    {
+                        id: "g2_7", type: "fill", topic: "Modals & Substitutes",
+                        prompt: "Forme um (Simple Past / ability): Ollie's group ____________ (can't) choose a group leader.",
+                        answers: ["wasn't able to", "was not able to"],
+                        explanation: "'Ollie's group' ist Einzahl (it) + Unfähigkeit in der Vergangenheit ➔ wasn't able to."
+                    },
+                    {
+                        id: "g2_8", type: "fill", topic: "Modals & Substitutes",
+                        prompt: "Forme um (Simple Past / needn't): We ____________ (needn't) be in bed before 9:30 p.m.",
+                        answers: ["didn't have to", "did not have to"],
+                        explanation: "Keine Notwendigkeit ('needn't') im Simple Past ➔ didn't have to."
+                    }
+                ]
+            },
+            3: {
+                description: "<strong>Stufe 3 (Profi):</strong> Finde Fehler, übersetze knifflige Sätze und wende Ersatzformen auch im Simple Present nach Nebensätzen an.",
+                tasks: [
+                    {
+                        id: "g3_1", type: "mc", topic: "Fehlerkorrektur (PP vs. SP)",
+                        prompt: "Welcher Satz ist grammatikalisch RICHTIG?",
+                        options: [
+                            "I have been in Wales two months ago.",
+                            "I was in Wales recently – about two months ago.",
+                            "I was in Wales since last summer."
+                        ],
+                        answer: "I was in Wales recently – about two months ago.",
+                        explanation: "Mit 'two months ago' muss das Simple Past ('was') stehen. 'since last summer' bräuchte das Present Perfect ('have been')."
+                    },
+                    {
+                        id: "g3_2", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "A: 'Where is your bike?' – B: 'Someone ____________ (steal) it! I can't ride home now.'",
+                        answers: ["has stolen", "'s stolen"],
+                        explanation: "Das Fahrrad ist jetzt weg (deutliche Auswirkung in der Gegenwart!), wann genau es gestohlen wurde, weiß man nicht ➔ Present Perfect: has stolen."
+                    },
+                    {
+                        id: "g3_3", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "When Rishi ____________ (arrive) at the workshop, Lauren was already there.",
+                        answers: ["arrived"],
+                        explanation: "Abgeschlossene Handlung in einem 'when'-Satz ➔ Simple Past: arrived."
+                    },
+                    {
+                        id: "g3_4", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "Übersetze das Verb: Wir haben gestern einen großen Fortschritt erreicht. ➔ We ____________ (achieve) a big improvement yesterday.",
+                        answers: ["achieved"],
+                        explanation: "Im Deutschen steht Perfekt ('haben erreicht'), aber wegen 'yesterday' steht im Englischen zwingend Simple Past: achieved."
+                    },
+                    {
+                        id: "g3_5", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "So far, the participants ____________ (not / have) any big arguments today.",
+                        answers: ["haven't had", "have not had"],
+                        explanation: "'So far' (bisher) und 'today' (der Tag läuft noch) ➔ Present Perfect: haven't had."
+                    },
+                    {
+                        id: "g3_6", type: "fill", topic: "Present Perfect vs. Simple Past",
+                        prompt: "My grandparents were poor, so they ____________ (never / can / afford) a holiday when they were young.",
+                        answers: ["were never able to afford", "could never afford"],
+                        explanation: "Abgeschlossener Zeitraum in der Vergangenheit ('when they were young') ➔ Simple Past: were never able to afford (oder could never afford)."
+                    },
+                    {
+                        id: "g3_7", type: "fill", topic: "Modals & Substitutes",
+                        prompt: "Ergänze die Ersatzform (Simple Present): I don't understand why we ____________ (mustn't) choose our own groups.",
+                        answers: ["aren't allowed to", "are not allowed to"],
+                        explanation: "Buch-Beispiel (S. 168): Nach 'why' verwendet man statt 'mustn't' die Ersatzform: aren't allowed to."
+                    },
+                    {
+                        id: "g3_8", type: "fill", topic: "Modals & Substitutes",
+                        prompt: "Ergänze die Ersatzform (Simple Present): Rishi doesn't understand why he ____________ (must) be at the workshop.",
+                        answers: ["has to"],
+                        explanation: "Buch-Beispiel (S. 168): 3. Person Singular ('he') + Notwendigkeit im Simple Present ➔ has to."
+                    }
+                ]
+            }
+        };
+
+        // =========================================================================
+        // 3. PROBEKLASSENARBEIT (40 PUNKTE GESAMT)
+        // =========================================================================
+        const MOCK_EXAM = [
+            {
+                partTitle: "Part A: Vocabulary – Station 1 & 2 (10 Punkte)",
+                partDesc: "Setze die passenden Vokabeln aus Station 1 oder 2 ein oder übersetze sie. (Je 1 Punkt)",
+                items: [
+                    {
+                        id: "ex_a1", points: 1, type: "fill",
+                        prompt: "1. Students aren't allowed to use their phones during the workshop ____________ (Sitzungen/Stunden).",
+                        answers: ["sessions"],
+                        explanation: "Station 1: session (Plural: sessions) = Sitzung; Stunde."
+                    },
+                    {
+                        id: "ex_a2", points: 1, type: "fill",
+                        prompt: "2. Please ____________ (ausschalten) your mobile phones before we start!",
+                        answers: ["switch off"],
+                        explanation: "Station 1: to switch off = ausschalten."
+                    },
+                    {
+                        id: "ex_a3", points: 1, type: "fill",
+                        prompt: "3. It is sometimes hard to leave your ____________ (Komfortzone) and try something new.",
+                        answers: ["comfort zone"],
+                        explanation: "Station 1: comfort zone = Komfortzone."
+                    },
+                    {
+                        id: "ex_a4", points: 1, type: "fill",
+                        prompt: "4. Riding a bike is much more ____________ (umweltfreundlich) than driving a car.",
+                        answers: ["eco-friendly"],
+                        explanation: "Station 1: eco-friendly = umweltfreundlich."
+                    },
+                    {
+                        id: "ex_a5", points: 1, type: "fill",
+                        prompt: "5. Ollie is a young ____________ (Betreuer) who helps his brother with autism.",
+                        answers: ["carer"],
+                        explanation: "Station 2: carer = Betreuer/-in."
+                    },
+                    {
+                        id: "ex_a6", points: 1, type: "fill",
+                        prompt: "6. When you ____________ (sich treffen / rumhängen) with friends, you spend time together.",
+                        answers: ["hang out", "meet up"],
+                        explanation: "Station 2: to hang out (with) / to meet up = sich treffen."
+                    },
+                    {
+                        id: "ex_a7", points: 1, type: "fill",
+                        prompt: "7. A ____________ (Hochhaus) is a very tall building with many flats.",
+                        answers: ["tower block"],
+                        explanation: "Station 2: tower block = Hochhaus."
+                    },
+                    {
+                        id: "ex_a8", points: 1, type: "fill",
+                        prompt: "8. My parents couldn't ____________ (sich leisten) to buy a big house in London.",
+                        answers: ["afford"],
+                        explanation: "Station 2: to afford = sich leisten."
+                    },
+                    {
+                        id: "ex_a9", points: 1, type: "fill",
+                        prompt: "9. People in the ____________ (Oberschicht) often have a lot of wealth.",
+                        answers: ["upper class"],
+                        explanation: "Station 2: upper class = Oberschicht."
+                    },
+                    {
+                        id: "ex_a10", points: 1, type: "fill",
+                        prompt: "10. You shouldn't be ____________ (voreingenommen) against people from other neighbourhoods.",
+                        answers: ["prejudiced"],
+                        explanation: "Station 2: to be prejudiced against sb/sth = voreingenommen sein gegenüber."
+                    }
+                ]
+            },
+            {
+                partTitle: "Part B: Grammar – Modals & Substitute Forms (8 Punkte)",
+                partDesc: "Ersetze die Modalverben durch die richtige Ersatzform (be allowed to, be able to, have to / didn't have to) in der angegebenen Zeitform. (Je 2 Punkte)",
+                items: [
+                    {
+                        id: "ex_b1", points: 2, type: "fill",
+                        prompt: "1. (Simple Past – mustn't): At last year's workshop, we ________________________ go out after 10 p.m.",
+                        answers: ["weren't allowed to", "were not allowed to"],
+                        explanation: "Verbot ('mustn't') im Simple Past mit 'we' ➔ weren't allowed to."
+                    },
+                    {
+                        id: "ex_b2", points: 2, type: "fill",
+                        prompt: "2. (Simple Past – must): Jess ________________________ stop two participants from arguing yesterday.",
+                        answers: ["had to"],
+                        explanation: "Notwendigkeit ('must') im Simple Past ➔ had to."
+                    },
+                    {
+                        id: "ex_b3", points: 2, type: "fill",
+                        prompt: "3. (Simple Past – can't): One group ________________________ finish their poster on time.",
+                        answers: ["wasn't able to", "was not able to"],
+                        explanation: "Unfähigkeit ('can't') im Simple Past mit 'one group' (Einzahl) ➔ wasn't able to."
+                    },
+                    {
+                        id: "ex_b4", points: 2, type: "fill",
+                        prompt: "4. (Simple Present – needn't): Jess ________________________ help the groups today because they already have lots of ideas.",
+                        answers: ["doesn't have to", "does not have to"],
+                        explanation: "Keine Notwendigkeit ('needn't') im Simple Present mit 'Jess' (3. Pers. Sg.) ➔ doesn't have to."
+                    }
+                ]
+            },
+            {
+                partTitle: "Part C: Grammar – Present Perfect vs. Simple Past (16 Punkte)",
+                partDesc: "Setze die Verben in Klammern im Simple Past oder Present Perfect ein. Achte auf Signalwörter und den Zusammenhang! (Je 2 Punkte)",
+                items: [
+                    {
+                        id: "ex_c1", points: 2, type: "fill",
+                        prompt: "1. Last weekend, Beca and Rishi ________________________ (attend) a workshop in London.",
+                        answers: ["attended"],
+                        explanation: "'Last weekend' ist ein abgeschlossener Zeitpunkt in der Vergangenheit ➔ Simple Past: attended."
+                    },
+                    {
+                        id: "ex_c2", points: 2, type: "fill",
+                        prompt: "2. Look! Lauren ________________________ (just / write) a great song for the final presentation!",
+                        answers: ["has just written", "'s just written"],
+                        explanation: "'just' + Auswirkung in der Gegenwart ('Look!') ➔ Present Perfect: has just written."
+                    },
+                    {
+                        id: "ex_c3", points: 2, type: "fill",
+                        prompt: "3. Ollie ________________________ (never / be) to a workshop before this weekend.",
+                        answers: ["has never been", "'s never been"],
+                        explanation: "'never' (Erfahrung bis heute) ➔ Present Perfect: has never been."
+                    },
+                    {
+                        id: "ex_c4", points: 2, type: "fill",
+                        prompt: "4. When Lauren ________________________ (be) a baby, her mums moved to North Kensington.",
+                        answers: ["was"],
+                        explanation: "Im 'when'-Satz über die Vergangenheit steht das Simple Past ➔ was."
+                    },
+                    {
+                        id: "ex_c5", points: 2, type: "fill",
+                        prompt: "5. We ________________________ (not / finish) our group project yet, so we need ten more minutes.",
+                        answers: ["haven't finished", "have not finished"],
+                        explanation: "'(not) yet' + Auswirkung auf jetzt ('so we need ten more minutes') ➔ Present Perfect: haven't finished."
+                    },
+                    {
+                        id: "ex_c6", points: 2, type: "fill",
+                        prompt: "6. Two years ago, my family ________________________ (move) from a rural area to Manchester.",
+                        answers: ["moved"],
+                        explanation: "'Two years ago' ist vorbei ➔ Simple Past: moved."
+                    },
+                    {
+                        id: "ex_c7", points: 2, type: "fill",
+                        prompt: "7. Since Monday, the students ________________________ (learn) a lot about different lifestyles.",
+                        answers: ["have learnt", "have learned", "'ve learnt", "'ve learned"],
+                        explanation: "'Since Monday' (seit Montag bis heute) ➔ Present Perfect: have learnt / have learned."
+                    },
+                    {
+                        id: "ex_c8", points: 2, type: "fill",
+                        prompt: "8. ________________________ you ________________________ (see) the new film club poster yesterday?",
+                        answers: ["Did / see", "Did you see"],
+                        hint: "Tipp: Schreibe z.B. 'Did / see'",
+                        explanation: "Frage nach einem abgeschlossenen Zeitpunkt ('yesterday') ➔ Simple Past: Did you see."
+                    }
+                ]
+            },
+            {
+                partTitle: "Part D: Mediation / Translation (6 Punkte)",
+                partDesc: "Übersetze die folgenden drei Sätze ins Englische. Achte genau auf die richtige Zeitform und die Ersatzformen! (Je 2 Punkte)",
+                items: [
+                    {
+                        id: "ex_d1", points: 2, type: "fill",
+                        prompt: "1. Ich habe gestern an einem Workshop teilgenommen. (to take part in)",
+                        answers: [
+                            "I took part in a workshop yesterday.",
+                            "I took part in a workshop yesterday"
+                        ],
+                        explanation: "Wegen 'gestern' (yesterday) steht im Englischen das Simple Past: I took part in a workshop yesterday."
+                    },
+                    {
+                        id: "ex_d2", points: 2, type: "fill",
+                        prompt: "2. Sie hat ihre Mutter gerade angerufen. (to call)",
+                        answers: [
+                            "She has just called her mum.",
+                            "She's just called her mum.",
+                            "She has just called her mom.",
+                            "She's just called her mom.",
+                            "She has just called her mum",
+                            "She's just called her mum"
+                        ],
+                        explanation: "'gerade' = just ➔ Present Perfect: She has just called her mum."
+                    },
+                    {
+                        id: "ex_d3", points: 2, type: "fill",
+                        prompt: "3. Wir mussten gestern nicht früh ins Bett gehen. (to go to bed early)",
+                        answers: [
+                            "We didn't have to go to bed early yesterday.",
+                            "We did not have to go to bed early yesterday.",
+                            "Yesterday we didn't have to go to bed early.",
+                            "We didn't have to go to bed early yesterday"
+                        ],
+                        explanation: "'mussten nicht' (keine Notwendigkeit in der Vergangenheit) ➔ didn't have to: We didn't have to go to bed early yesterday."
+                    }
+                ]
+            }
+        ];
+
+        // =========================================================================
+        // 4. GLOBALER ZUSTAND & NAVIGATION
+        // =========================================================================
+        let solvedTasksCount = 0;
+
+        function updateGlobalStats() {
+            solvedTasksCount++;
+            document.getElementById("global-stats").textContent = `${solvedTasksCount} Aufgaben gelöst`;
+        }
+
+        function switchTab(tabId) {
+            // Alle Sektionen ausblenden
+            document.querySelectorAll(".tab-section").forEach(sec => sec.classList.add("hidden"));
+            // Ziel-Sektion einblenden
+            document.getElementById(`section-${tabId}`).classList.remove("hidden");
+
+            // Nav-Buttons aktualisieren
+            document.querySelectorAll(".nav-btn").forEach(btn => {
+                btn.classList.remove("bg-white", "text-teal-900", "shadow-sm");
+                btn.classList.add("text-white", "hover:bg-white/15");
+            });
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.remove("text-white", "hover:bg-white/15");
+            activeBtn.classList.add("bg-white", "text-teal-900", "shadow-sm");
+        }
+
+        // =========================================================================
+        // 5. BEREICH 1: ZEITSTRAHL & MINI-CHECK
+        // =========================================================================
+        function showTimelineTip(type) {
+            const box = document.getElementById("timeline-explanation");
+            box.classList.remove("hidden");
+            if (type === "past") {
+                box.innerHTML = `<strong class="text-sky-800">Simple Past:</strong> Der Umzug nach North Kensington fand zu einem bestimmten Zeitpunkt in der Vergangenheit statt (<em>when she was a baby</em>) und ist abgeschlossen.`;
+            } else {
+                box.innerHTML = `<strong class="text-emerald-800">Present Perfect:</strong> Laurens Erfahrung erstreckt sich von der Vergangenheit bis genau jetzt in die Gegenwart (<em>bis heute hat sie noch nie in einem großen Haus gewohnt</em>).`;
+            }
+        }
+
+        const QUICK_CHECKS = [
+            {
+                q: "1. 'I _______ my phone last week.' – Welche Form ist richtig?",
+                options: ["have lost", "lost"],
+                correct: "lost",
+                why: "'last week' ist vorbei ➔ Simple Past (lost)."
+            },
+            {
+                q: "2. 'Rishi _______ his phone! He can't call his parents now.'",
+                options: ["has lost", "lost"],
+                correct: "has lost",
+                why: "Das Ergebnis ist jetzt spürbar ('He can't call now') ➔ Present Perfect (has lost)."
+            },
+            {
+                q: "3. Wie heißt 'dürfen' im Simple Past (Ersatzform für can/may)?",
+                options: ["was/were able to", "was/were allowed to"],
+                correct: "was/were allowed to",
+                why: "Erlaubnis = be allowed to (Fähigkeit = be able to)."
+            }
+        ];
+
+        function initQuickCheck() {
+            const container = document.getElementById("quick-check-container");
+            container.innerHTML = QUICK_CHECKS.map((item, idx) => `
+                <div class="bg-white rounded-xl p-4 border border-teal-100 shadow-xs">
+                    <p class="font-semibold text-sm sm:text-base text-slate-800 mb-2.5">${item.q}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${item.options.map(opt => `
+                            <button onclick="answerQuickCheck(${idx}, '${opt.replace(/'/g, "\\'")}', this)"
+                                class="qc-btn-${idx} px-3.5 py-1.5 rounded-lg border border-slate-300 text-sm font-medium hover:bg-slate-50 transition">
+                                ${opt}
+                            </button>
+                        `).join("")}
+                    </div>
+                    <div id="qc-feedback-${idx}" class="hidden mt-2.5 text-xs sm:text-sm font-medium px-3 py-2 rounded-lg"></div>
+                </div>
+            `).join("");
+        }
+
+        function answerQuickCheck(idx, chosen, btnEl) {
+            const item = QUICK_CHECKS[idx];
+            const fb = document.getElementById(`qc-feedback-${idx}`);
+            const buttons = document.querySelectorAll(`.qc-btn-${idx}`);
+
+            buttons.forEach(b => {
+                b.classList.remove("bg-emerald-600", "text-white", "border-emerald-600", "bg-rose-600", "border-rose-600");
+            });
+
+            fb.classList.remove("hidden", "bg-emerald-50", "text-emerald-900", "bg-rose-50", "text-rose-900");
+
+            if (chosen === item.correct) {
+                btnEl.classList.add("bg-emerald-600", "text-white", "border-emerald-600");
+                fb.classList.add("bg-emerald-50", "text-emerald-900");
+                fb.innerHTML = `✅ Richtig! ${item.why}`;
+                updateGlobalStats();
+            } else {
+                btnEl.classList.add("bg-rose-600", "text-white", "border-rose-600");
+                fb.classList.add("bg-rose-50", "text-rose-900");
+                fb.innerHTML = `❌ Nicht ganz. ${item.why}`;
+            }
+        }
+
+        // =========================================================================
+        // 6. BEREICH 2: VOKABELTRAINER (KARTEIKARTEN & QUIZ)
+        // =========================================================================
+        let currentVocabFilter = "all";
+        let filteredVocab = [...VOCAB_DATA];
+        let currentCardIndex = 0;
+        let isCardFlipped = false;
+        let currentVocabQuizItems = [];
+
+        function setVocabMode(mode) {
+            const btnFlash = document.getElementById("btn-vocab-flashcards");
+            const btnQuiz = document.getElementById("btn-vocab-quiz");
+            const viewFlash = document.getElementById("vocab-flashcards-view");
+            const viewQuiz = document.getElementById("vocab-quiz-view");
+            const dirWrap = document.getElementById("flashcard-direction-wrap");
+
+            if (mode === "flashcards") {
+                btnFlash.classList.add("bg-white", "text-teal-800", "shadow-sm");
+                btnFlash.classList.remove("text-slate-600");
+                btnQuiz.classList.remove("bg-white", "text-teal-800", "shadow-sm");
+                btnQuiz.classList.add("text-slate-600");
+                viewFlash.classList.remove("hidden");
+                viewQuiz.classList.add("hidden");
+                dirWrap.classList.remove("hidden");
+            } else {
+                btnQuiz.classList.add("bg-white", "text-teal-800", "shadow-sm");
+                btnQuiz.classList.remove("text-slate-600");
+                btnFlash.classList.remove("bg-white", "text-teal-800", "shadow-sm");
+                btnFlash.classList.add("text-slate-600");
+                viewQuiz.classList.remove("hidden");
+                viewFlash.classList.add("hidden");
+                dirWrap.classList.add("hidden");
+                if (currentVocabQuizItems.length === 0) {
+                    generateVocabQuiz();
+                }
+            }
+        }
+
+        function setVocabFilter(station) {
+            currentVocabFilter = station;
+            document.querySelectorAll(".vocab-filter-btn").forEach(btn => {
+                btn.classList.remove("bg-teal-700", "text-white");
+                btn.classList.add("bg-slate-100", "text-slate-700");
+            });
+            const active = document.getElementById(`filter-${station}`);
+            active.classList.remove("bg-slate-100", "text-slate-700");
+            active.classList.add("bg-teal-700", "text-white");
+
+            if (station === "all") {
+                filteredVocab = [...VOCAB_DATA];
+            } else {
+                filteredVocab = VOCAB_DATA.filter(v => v.station === station);
+            }
+            currentCardIndex = 0;
+            renderFlashcard();
+            generateVocabQuiz();
+        }
+
+        function renderFlashcard() {
+            const card = filteredVocab[currentCardIndex];
+            const direction = document.getElementById("card-direction").value;
+            const inner = document.getElementById("flashcard-inner");
+
+            // Karte auf Vorderseite zurückdrehen
+            isCardFlipped = false;
+            inner.classList.remove("rotate-y-180");
+
+            document.getElementById("card-counter").textContent = `Karte ${currentCardIndex + 1} von ${filteredVocab.length}`;
+            const badge = document.getElementById("card-station-badge");
+            badge.textContent = `Station ${card.station}`;
+            badge.className = card.station === "1"
+                ? "bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full"
+                : "bg-sky-100 text-sky-800 font-bold px-2.5 py-0.5 rounded-full";
+
+            if (direction === "en-de") {
+                document.getElementById("card-front-text").textContent = card.en;
+                document.getElementById("card-front-hint").textContent = "Englisch ➔ Deutsch";
+                document.getElementById("card-back-text").textContent = card.de;
+            } else {
+                document.getElementById("card-front-text").textContent = card.de;
+                document.getElementById("card-front-hint").textContent = "Deutsch ➔ Englisch";
+                document.getElementById("card-back-text").textContent = card.en;
+            }
+            document.getElementById("card-example-box").innerHTML = `<span class="opacity-75">Beispiel:</span> „${card.example}“`;
+        }
+
+        function flipCard() {
+            isCardFlipped = !isCardFlipped;
+            const inner = document.getElementById("flashcard-inner");
+            if (isCardFlipped) {
+                inner.classList.add("rotate-y-180");
+            } else {
+                inner.classList.remove("rotate-y-180");
+            }
+        }
+
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % filteredVocab.length;
+            renderFlashcard();
+        }
+
+        function prevCard() {
+            currentCardIndex = (currentCardIndex - 1 + filteredVocab.length) % filteredVocab.length;
+            renderFlashcard();
+        }
+
+        function shuffleCards() {
+            for (let i = filteredVocab.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [filteredVocab[i], filteredVocab[j]] = [filteredVocab[j], filteredVocab[i]];
+            }
+            currentCardIndex = 0;
+            renderFlashcard();
+        }
+
+        // Vokabel-Quiz Generator (10 gemischte Fragen aus aktuellem Filter)
+        function generateVocabQuiz() {
+            const pool = [...filteredVocab].sort(() => Math.random() - 0.5).slice(0, 10);
+            currentVocabQuizItems = pool.map((v, idx) => {
+                // Bereinige englische Grundform für Eingabefeld (ohne "to " oder "(do sth)" als Pflicht)
+                const cleanEn = v.en
+                    .replace(/^to\s+/i, "")
+                    .replace(/\s*\(.*?\)/g, "")
+                    .split("/")[0]
+                    .trim();
+
+                const isMultipleChoice = idx % 2 === 0;
+                if (isMultipleChoice) {
+                    const distractors = VOCAB_DATA
+                        .filter(item => item.en !== v.en)
+                        .sort(() => Math.random() - 0.5)
+                        .slice(0, 3)
+                        .map(d => d.de);
+                    const options = [v.de, ...distractors].sort(() => Math.random() - 0.5);
+                    return {
+                        type: "mc",
+                        station: v.station,
+                        prompt: `Was bedeutet „<strong>${v.en}</strong>“ auf Deutsch?`,
+                        options,
+                        answer: v.de,
+                        example: v.example
+                    };
+                } else {
+                    return {
+                        type: "input",
+                        station: v.station,
+                        prompt: `Übersetze ins Englische: „<strong>${v.de}</strong>“`,
+                        accepted: [v.en.toLowerCase(), cleanEn.toLowerCase()],
+                        displayAnswer: v.en,
+                        example: v.example
+                    };
+                }
+            });
+
+            const listEl = document.getElementById("vocab-quiz-list");
+            document.getElementById("vocab-quiz-score").textContent = "";
+
+            listEl.innerHTML = currentVocabQuizItems.map((q, i) => `
+                <div id="vq-card-${i}" class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="text-sm sm:text-base text-slate-800">${i + 1}. ${q.prompt}</span>
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-700 shrink-0">St. ${q.station}</span>
+                    </div>
+                    ${q.type === "mc" ? `
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+                            ${q.options.map((opt, optIdx) => `
+                                <label class="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-slate-200 cursor-pointer hover:bg-teal-50/50 text-sm">
+                                    <input type="radio" name="vq_${i}" value="${opt.replace(/"/g, '&quot;')}" class="accent-teal-700">
+                                    <span>${opt}</span>
+                                </label>
+                            `).join("")}
+                        </div>
+                    ` : `
+                        <input type="text" id="vq-input-${i}" placeholder="Englische Vokabel eingeben..."
+                            class="mt-1 w-full sm:w-96 px-3.5 py-2 rounded-lg border border-slate-300 bg-white text-sm focus:outline-none focus:border-teal-600">
+                    `}
+                    <div id="vq-fb-${i}" class="hidden mt-2.5 text-xs sm:text-sm p-2.5 rounded-lg"></div>
+                </div>
+            `).join("");
+        }
+
+        function checkVocabQuiz() {
+            let score = 0;
+            currentVocabQuizItems.forEach((q, i) => {
+                const fb = document.getElementById(`vq-fb-${i}`);
+                const card = document.getElementById(`vq-card-${i}`);
+                fb.classList.remove("hidden", "bg-emerald-100", "text-emerald-900", "bg-rose-100", "text-rose-900");
+                card.classList.remove("border-emerald-400", "border-rose-400");
+
+                let isCorrect = false;
+                if (q.type === "mc") {
+                    const selected = document.querySelector(`input[name="vq_${i}"]:checked`);
+                    if (selected && selected.value === q.answer) isCorrect = true;
+                } else {
+                    const val = document.getElementById(`vq-input-${i}`).value.trim().toLowerCase();
+                    if (val && q.accepted.includes(val)) isCorrect = true;
+                }
+
+                if (isCorrect) {
+                    score++;
+                    card.classList.add("border-emerald-400");
+                    fb.classList.add("bg-emerald-100", "text-emerald-900");
+                    fb.innerHTML = `✅ Richtig! <em>Beispiel: „${q.example}“</em>`;
+                    updateGlobalStats();
+                } else {
+                    card.classList.add("border-rose-400");
+                    fb.classList.add("bg-rose-100", "text-rose-900");
+                    const rightText = q.type === "mc" ? q.answer : q.displayAnswer;
+                    fb.innerHTML = `❌ Leider falsch. Richtige Lösung: <strong>${rightText}</strong>`;
+                }
+            });
+
+            document.getElementById("vocab-quiz-score").textContent = `Ergebnis: ${score} von ${currentVocabQuizItems.length} richtig!`;
+        }
+
+        // =========================================================================
+        // 7. BEREICH 3: GRAMMATIK-TRAINING (3 SCHWIERIGKEITSSTUFEN)
+        // =========================================================================
+        let currentGrammarLevel = 1;
+
+        function setGrammarLevel(lvl) {
+            currentGrammarLevel = lvl;
+            [1, 2, 3].forEach(n => {
+                const btn = document.getElementById(`lvl-btn-${n}`);
+                if (n === lvl) {
+                    btn.classList.remove("bg-slate-100", "text-slate-700");
+                    btn.classList.add("bg-emerald-600", "text-white", "shadow-sm");
+                } else {
+                    btn.classList.remove("bg-emerald-600", "text-white", "shadow-sm");
+                    btn.classList.add("bg-slate-100", "text-slate-700");
+                }
+            });
+
+            const levelObj = GRAMMAR_LEVELS[lvl];
+            document.getElementById("level-description").innerHTML = levelObj.description;
+            document.getElementById("grammar-level-summary").textContent = "";
+            renderGrammarTasks();
+        }
+
+        function renderGrammarTasks() {
+            const tasks = GRAMMAR_LEVELS[currentGrammarLevel].tasks;
+            const container = document.getElementById("grammar-tasks-container");
+
+            container.innerHTML = tasks.map((t, idx) => `
+                <div id="gtask-card-${t.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 transition">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                        <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md ${
+                            t.topic.includes("Modals") ? "bg-amber-100 text-amber-900" : "bg-sky-100 text-sky-900"
+                        }">${t.topic}</span>
+                        <span class="text-xs text-slate-400 font-semibold">Aufgabe ${idx + 1} / ${tasks.length}</span>
+                    </div>
+
+                    <p class="text-base sm:text-lg font-medium text-slate-800 mb-3">${t.prompt}</p>
+                    ${t.hint ? `<p class="text-xs text-slate-500 mb-2 italic">${t.hint}</p>` : ""}
+
+                    ${t.type === "mc" ? `
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            ${t.options.map(opt => `
+                                <label class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-slate-300 bg-slate-50 hover:bg-teal-50 cursor-pointer text-sm font-medium">
+                                    <input type="radio" name="gtask_${t.id}" value="${opt.replace(/"/g, '&quot;')}" class="accent-teal-700">
+                                    <span>${opt}</span>
+                                </label>
+                            `).join("")}
+                        </div>
+                    ` : `
+                        <div class="flex flex-col sm:flex-row gap-2 mb-3">
+                            <input type="text" id="gtask-input-${t.id}" placeholder="Deine Lösung..."
+                                class="w-full sm:w-96 px-3.5 py-2 rounded-xl border border-slate-300 text-sm sm:text-base focus:outline-none focus:border-teal-600">
+                        </div>
+                    `}
+
+                    <button onclick="checkSingleGrammarTask('${t.id}')"
+                        class="px-4 py-1.5 rounded-lg bg-slate-800 text-white text-xs sm:text-sm font-semibold hover:bg-slate-900 transition">
+                        Prüfen
+                    </button>
+
+                    <div id="gtask-fb-${t.id}" class="hidden mt-3 p-3 rounded-xl text-sm"></div>
+                </div>
+            `).join("");
+        }
+
+        function normalizeAnswer(str) {
+            return str.trim().replace(/\s+/g, " ").replace(/’/g, "'").toLowerCase();
+        }
+
+        function checkSingleGrammarTask(taskId) {
+            const tasks = GRAMMAR_LEVELS[currentGrammarLevel].tasks;
+            const task = tasks.find(t => t.id === taskId);
+            const fb = document.getElementById(`gtask-fb-${taskId}`);
+            const card = document.getElementById(`gtask-card-${taskId}`);
+
+            fb.classList.remove("hidden", "bg-emerald-50", "text-emerald-950", "border", "border-emerald-200", "bg-rose-50", "text-rose-950", "border-rose-200");
+            card.classList.remove("border-emerald-400", "border-rose-400");
+
+            let isCorrect = false;
+            if (task.type === "mc") {
+                const selected = document.querySelector(`input[name="gtask_${taskId}"]:checked`);
+                if (selected && selected.value === task.answer) isCorrect = true;
+            } else {
+                const userVal = normalizeAnswer(document.getElementById(`gtask-input-${taskId}`).value);
+                if (userVal && task.answers.some(ans => normalizeAnswer(ans) === userVal)) {
+                    isCorrect = true;
+                }
+            }
+
+            if (isCorrect) {
+                card.classList.add("border-emerald-400");
+                fb.classList.add("bg-emerald-50", "text-emerald-950", "border", "border-emerald-200");
+                fb.innerHTML = `<strong>✅ Richtig!</strong> ${task.explanation}`;
+                updateGlobalStats();
+            } else {
+                card.classList.add("border-rose-400");
+                fb.classList.add("bg-rose-50", "text-rose-950", "border", "border-rose-200");
+                const correctDisplay = task.type === "mc" ? task.answer : task.answers[0];
+                fb.innerHTML = `<strong>❌ Nicht ganz.</strong> Richtige Lösung: <strong class="underline">${correctDisplay}</strong><br><span class="text-xs sm:text-sm mt-1 inline-block">${task.explanation}</span>`;
+            }
+            return isCorrect;
+        }
+
+        function checkAllGrammarTasks() {
+            const tasks = GRAMMAR_LEVELS[currentGrammarLevel].tasks;
+            let rightCount = 0;
+            tasks.forEach(t => {
+                if (checkSingleGrammarTask(t.id)) rightCount++;
+            });
+            document.getElementById("grammar-level-summary").textContent =
+                `Stufe ${currentGrammarLevel} Ergebnis: ${rightCount} von ${tasks.length} Punkten`;
+        }
+
+        function resetGrammarLevel() {
+            document.getElementById("grammar-level-summary").textContent = "";
+            renderGrammarTasks();
+        }
+
+        // =========================================================================
+        // 8. BEREICH 4: PROBEKLASSENARBEIT MIT NOTENBERECHNUNG
+        // =========================================================================
+        function renderMockExam() {
+            const container = document.getElementById("mock-exam-container");
+            container.innerHTML = MOCK_EXAM.map((part, pIdx) => `
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6">
+                    <div class="border-b border-slate-100 pb-3 mb-4">
+                        <h3 class="text-lg sm:text-xl font-bold text-teal-900">${part.partTitle}</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-0.5">${part.partDesc}</p>
+                    </div>
+                    <div class="space-y-4">
+                        ${part.items.map(item => `
+                            <div id="exam-item-${item.id}" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <div class="flex items-start justify-between gap-2 mb-2">
+                                    <label for="input-${item.id}" class="text-sm sm:text-base font-medium text-slate-800">${item.prompt}</label>
+                                    <span class="text-xs font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200 shrink-0">${item.points} P.</span>
+                                </div>
+                                ${item.hint ? `<div class="text-xs text-slate-500 italic mb-1.5">${item.hint}</div>` : ""}
+                                <input type="text" id="input-${item.id}" placeholder="Antwort eintragen..."
+                                    class="w-full sm:w-96 px-3.5 py-2 rounded-lg border border-slate-300 bg-white text-sm focus:outline-none focus:border-teal-600">
+                                <div id="exam-fb-${item.id}" class="hidden mt-2.5 p-2.5 rounded-lg text-xs sm:text-sm"></div>
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function calculateGermanGrade(percent) {
+            if (percent >= 92) return { grade: "1", title: "Note 1 (Sehr gut) – Hervorragend!", color: "text-emerald-600", msg: "Du beherrschst sowohl die Vokabeln aus Station 1 & 2 als auch Present Perfect vs. Simple Past und die Ersatzformen der Modalverben sicher. Du bist bestens für die Klassenarbeit vorbereitet!" };
+            if (percent >= 81) return { grade: "2", title: "Note 2 (Gut) – Starke Leistung!", color: "text-teal-600", msg: "Das sitzt schon richtig gut! Schau dir noch kurz die rot markierten Kleinigkeiten an, dann ist sogar die 1 drin." };
+            if (percent >= 67) return { grade: "3", title: "Note 3 (Befriedigend) – Solide Basis!", color: "text-sky-600", msg: "Du hast schon viele Punkte geholt. Wiederhole gezielt die Fehlerstellen (z. B. Signalwörter oder Ersatzformen im Simple Past), um dich noch weiter zu verbessern." };
+            if (percent >= 50) return { grade: "4", title: "Note 4 (Ausreichend) – Bestanden, aber noch Luft nach oben!", color: "text-amber-600", msg: "Knapp bestanden! Geh noch einmal den Grammatik-Spickzettel durch und übe die Vokabeln mit den Karteikarten." };
+            if (percent >= 30) return { grade: "5", title: "Note 5 (Mangelhaft) – Noch etwas Training nötig!", color: "text-orange-600", msg: "Kein Problem – dafür ist diese Probearbeit da! Schau dir jede Musterlösung unten genau an und starte danach einen neuen Durchgang." };
+            return { grade: "6", title: "Note 6 (Ungenügend) – Übung macht den Meister!", color: "text-rose-600", msg: "Starte am besten noch einmal bei Bereich 1 (Grammatik-Spickzettel) und Bereich 2 (Vokabel-Karteikarten), bevor du die Arbeit wiederholst." };
+        }
+
+        function gradeMockExam() {
+            let earnedPoints = 0;
+            let totalPoints = 0;
+
+            MOCK_EXAM.forEach(part => {
+                part.items.forEach(item => {
+                    totalPoints += item.points;
+                    const inputEl = document.getElementById(`input-${item.id}`);
+                    const fbEl = document.getElementById(`exam-fb-${item.id}`);
+                    const boxEl = document.getElementById(`exam-item-${item.id}`);
+
+                    const userVal = normalizeAnswer(inputEl.value);
+                    const isCorrect = userVal !== "" && item.answers.some(ans => normalizeAnswer(ans) === userVal);
+
+                    fbEl.classList.remove("hidden", "bg-emerald-100", "text-emerald-950", "bg-rose-100", "text-rose-950");
+                    boxEl.classList.remove("border-emerald-400", "bg-emerald-50/30", "border-rose-400", "bg-rose-50/30");
+
+                    if (isCorrect) {
+                        earnedPoints += item.points;
+                        boxEl.classList.add("border-emerald-400", "bg-emerald-50/30");
+                        fbEl.classList.add("bg-emerald-100", "text-emerald-950");
+                        fbEl.innerHTML = `✅ <strong>Richtig (+${item.points} P.)</strong> – ${item.explanation}`;
+                        updateGlobalStats();
+                    } else {
+                        boxEl.classList.add("border-rose-400", "bg-rose-50/30");
+                        fbEl.classList.add("bg-rose-100", "text-rose-950");
+                        fbEl.innerHTML = `❌ <strong>Falsch (0/${item.points} P.)</strong> – Musterlösung: <strong>${item.answers[0]}</strong><br><span class="opacity-90">${item.explanation}</span>`;
+                    }
+                });
+            });
+
+            const percent = Math.round((earnedPoints / totalPoints) * 100);
+            const result = calculateGermanGrade(percent);
+
+            const banner = document.getElementById("exam-result-banner");
+            banner.classList.remove("hidden");
+            document.getElementById("exam-feedback-title").textContent = result.title;
+            document.getElementById("exam-feedback-text").textContent = result.msg;
+            document.getElementById("exam-points-display").textContent = `${earnedPoints} / ${totalPoints}`;
+            document.getElementById("exam-percent-display").textContent = `${percent}%`;
+
+            const gradeEl = document.getElementById("exam-grade-display");
+            gradeEl.textContent = result.grade;
+            gradeEl.className = `text-5xl font-black mt-0.5 ${result.color}`;
+
+            // Sanft nach oben zum Zeugnis/Ergebnis scrollen
+            banner.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        function resetMockExam() {
+            document.getElementById("exam-result-banner").classList.add("hidden");
+            renderMockExam();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // =========================================================================
+        // INITIALISIERUNG BEIM LADEN DER SEITE
+        // =========================================================================
+        window.addEventListener("DOMContentLoaded", () => {
+            initQuickCheck();
+            renderFlashcard();
+            renderGrammarTasks();
+            renderMockExam();
+        });
+    </script>
+</body>
+</html>
